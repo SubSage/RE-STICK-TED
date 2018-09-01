@@ -1,20 +1,25 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var Bullet = preload("res://Bullet.tscn")
+var direction = Vector2(0,0)
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
-
 func _on_Area2D_area_entered(area):
 #	print(area.name)
+	pass # replace with function body
+
+
+func _on_Timer_timeout():
+	var b = Bullet.instance()
+	b.direction=direction
+	b.position=self.position
+	b.speed=200
+	b.size=4
+	b.get_node("Timer").wait_time=15
+	$"..".add_child(b)
+	$Timer.start()
 	pass # replace with function body

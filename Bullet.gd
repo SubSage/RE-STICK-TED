@@ -20,7 +20,8 @@ func _draw():
 
 func _on_Area2D_area_entered(area):
 	if (area.is_in_group("shootable")): 
-		queue_free()
+		pass
+#		queue_free()
 	pass # replace with function body
 
 
