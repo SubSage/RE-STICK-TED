@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GMTK 2018 industrial electro v1.wav-a536292be43713de08b0be6afbd3378c.sample"
+
+[deps]
+
+source_file="res://assets/audio/GMTK 2018 industrial electro v1.wav"
+dest_files=[ "res://.import/GMTK 2018 industrial electro v1.wav-a536292be43713de08b0be6afbd3378c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
