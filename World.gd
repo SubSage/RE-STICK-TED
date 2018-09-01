@@ -35,14 +35,16 @@ func _ready():
 
 func _process(delta):
 	#rotate(.03)
+	position.x+=32*delta
 	t=t + delta
 	update()
 	pass
 
-func _draw():
-	for a in grid_size.x:
-		for b in grid_size.y:
-			pass
-			#draw_circle(Vector2(a*cell_size,b*cell_size),cell_size/2, Color(200,200,200))
-	#draw_line(Vector2(100,50), Vector2(100,0), Color(200,200,200),1)
+
+#func _draw():
+#	for a in grid_size.x:
+#		for b in grid_size.y:
+#			pass
+#			#draw_circle(Vector2(a*cell_size,b*cell_size),cell_size/2, Color(200,200,200))
+#	#draw_line(Vector2(100,50), Vector2(100,0), Color(200,200,200),1)
 	

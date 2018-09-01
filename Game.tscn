@@ -4,7 +4,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/audio/GMTK 2018 industrial electro v1.wav" type="AudioStream" id=3]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="World" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -13,7 +13,7 @@
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 3 )
-volume_db = 0.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0

@@ -16,6 +16,7 @@ script = ExtResource( 1 )
 "shootable",
 ]]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -40,6 +41,13 @@ process_mode = 1
 wait_time = 1.92
 one_shot = false
 autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 5555 )
+collision_mask = 2
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
