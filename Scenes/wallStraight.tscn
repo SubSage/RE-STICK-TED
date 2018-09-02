@@ -380,7 +380,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 64, 64 )
 
-[node name="wallStraight" type="Node2D"]
+[node name="wallStraight" type="Node2D" index="0"]
 
 [node name="_REF" type="Sprite" parent="." index="0"]
 
