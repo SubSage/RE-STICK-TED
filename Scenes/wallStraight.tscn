@@ -12,7 +12,7 @@
 [sub_resource type="Animation" id=4]
 
 resource_name = "flight"
-length = 2.0
+length = 1.0
 loop = false
 step = 0.05
 tracks/0/type = "value"
@@ -61,7 +61,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 20 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 25 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("obj/shadow:visible")
@@ -106,11 +106,11 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.95 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "playActivate"
+"method": "active"
 } ]
 }
 
@@ -380,7 +380,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 64, 64 )
 
-[node name="wallStraight" type="Node2D" index="0"]
+[node name="wallStraight" type="Node2D"]
 
 [node name="_REF" type="Sprite" parent="." index="0"]
 
@@ -391,7 +391,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="jets" type="Node2D" parent="." index="1"]
 
-visible = false
 _sections_unfolded = [ "Visibility" ]
 
 [node name="jet1" parent="jets" index="0" instance=ExtResource( 2 )]
@@ -404,15 +403,15 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="shadow" type="Sprite" parent="obj" index="0"]
 
-visible = false
-position = Vector2( 0, 40 )
-scale = Vector2( 0.5, 0.225 )
+position = Vector2( 0, 30 )
+scale = Vector2( 0.5, 0.25 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="legs" type="Node2D" parent="obj" index="1"]
 
 editor/display_folded = true
+position = Vector2( 0, 25 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="left" type="Sprite" parent="obj/legs" index="0"]
@@ -435,6 +434,8 @@ texture = ExtResource( 5 )
 
 [node name="directionIndicator" type="Node2D" parent="obj" index="3"]
 
+editor/display_folded = true
+position = Vector2( 0, 11 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="texture" type="Sprite" parent="obj/directionIndicator" index="0"]
