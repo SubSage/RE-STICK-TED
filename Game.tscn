@@ -1,12 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/audio/GMTK 2018 industrial electro v2.wav" type="AudioStream" id=3]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 [node name="World" parent="." index="0" instance=ExtResource( 1 )]
 
+t = 0
+
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 256, 256 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 
