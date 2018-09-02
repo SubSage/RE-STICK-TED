@@ -1,8 +1,8 @@
 extends Node2D
 
-var grid_size = Vector2(32,16)
-var cell_size = 64
-var t=0
+var grid_size = Vector2(16,24)
+var cell_size = 128
+export var t=0
 var Panels = preload("res://Panel.tscn")
 
 func _ready():
@@ -15,19 +15,23 @@ func _ready():
 				p.position.y=panels2 * cell_size
 				if panels == grid_size.x-1:
 					p.direction=Vector2(-1,0)
+					add_child(p)
+					p.get_node("turretStandard").rotate(deg2rad(180))
 				else:
 					p.direction=Vector2(1,0)
-				add_child(p)
+					add_child(p)
 		else:
 			var p = Panels.instance()
 			p.position.x=panels * cell_size
 			p.direction=Vector2(0,1)
 			add_child(p)
+			p.get_node("turretStandard").rotate(deg2rad(90))
 			var p2 = Panels.instance()
 			p2.position.x=panels * cell_size
 			p2.position.y=(grid_size.y - 1) * cell_size
 			p2.direction=Vector2(0,-1)
 			add_child(p2)
+			p2.get_node("turretStandard").rotate(deg2rad(270))
 		
 #	move_child(p,0)
 #	add_child_below_node(p)

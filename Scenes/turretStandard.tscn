@@ -328,7 +328,9 @@ tracks/11/keys = {
 "values": [ Vector2( 13, 0 ), Vector2( 13, 0 ), Vector2( 13, 0 ), Vector2( 36, 0 ) ]
 }
 
-[node name="turretStandard" type="Node" index="0"]
+[node name="turretStandard" type="Node2D"]
+
+_sections_unfolded = [ "Transform" ]
 
 [node name="REF" type="Sprite" parent="." index="0"]
 
@@ -337,7 +339,7 @@ modulate = Color( 1, 1, 1, 0.419922 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="turret" type="Node" parent="." index="1"]
+[node name="turret" type="Node2D" parent="." index="1"]
 
 [node name="turretContainer" type="Sprite" parent="turret" index="0"]
 
