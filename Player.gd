@@ -55,6 +55,15 @@ func _process(delta):
 			b.position=self.position
 			b.speed=128*3
 			b.size=4
+			b.get_node("Sprite").texture=load("res://Sprites/bulletSpark.png")
+			if(direction.x>0):
+				b.rotate(deg2rad(90))
+			if(direction.x<0):
+				b.rotate(deg2rad(90))
+			if(direction.y>0):
+				b.rotate(deg2rad(180))
+			if(direction.y<0):
+				b.rotate(deg2rad(180))
 			b.get_node("Area2D").add_to_group("player bullets")
 			$"..".add_child(b)
 			
@@ -78,6 +87,9 @@ func _process(delta):
 
 
 func _on_hitbox_area_entered(area):
+#	print(area.name)
+	if(area.is_in_group("enemy_bullet")or area.is_in_group("wall")):
+		get_tree().quit()
 #	print(area.name)
 #	print("Player has touched : " +str(area.name))
 	pass # replace with function body

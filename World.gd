@@ -6,6 +6,8 @@ export var t=0
 var Panels = preload("res://Panel.tscn")
 var Wall = preload("res://Scenes/wallStraight.tscn")
 var Omni = preload("res://Scenes/turretOmni.tscn")
+var enemy_count=0
+var stage=0
 
 func _ready():
 	pass
@@ -17,8 +19,11 @@ func init(var level):
 			if panels == 0 or panels==grid_size.x-1:
 				for panels2 in range(1,grid_size.y-1):
 					if randf()<.32:
+						enemy_count += 1
+						
+#						print("enenmys: " + str(enemy_count))
 						var p = Panels.instance()
-						p.delay(panels/30.0 + ((grid_size.y - 1))/60.0)
+						p.delay(min(panels/30.0 + ((grid_size.y - 1))/60.0,1.4))
 						p.position.x=panels * cell_size
 						p.position.y=panels2 * cell_size
 						p.direction=Vector2(1,0)
@@ -41,16 +46,19 @@ func init(var level):
 							w.rotate(deg2rad(270))
 			else:
 				if randf()<.3:
+					enemy_count += 1
 					var p = Panels.instance()
-					p.delay(panels/10.0)
+					p.delay(min(1.4,panels/10.0))
 					p.position.x=panels * cell_size
 					p.direction=Vector2(0,1)
 					add_child(p)
 					p.get_node("turretStandard").rotate(deg2rad(90))
 					var p2 = Panels.instance()
+#					print("enenmys: " + str(enemy_count))
+					enemy_count += 1
 					p2.position.x=panels * cell_size
 					p2.position.y=(grid_size.y - 1) * cell_size
-					p2.delay(panels/10.0 + ((grid_size.y - 1))/30.0)
+					p2.delay(min(1.4,panels/10.0 + ((grid_size.y - 1))/30.0))
 					p2.direction=Vector2(0,-1)
 					add_child(p2)
 					p2.get_node("turretStandard").rotate(deg2rad(270))
@@ -72,7 +80,12 @@ func init(var level):
 func _process(delta):
 	#rotate(.03)
 	#position.x+=32*delta
-	t=t + delta
+#	t=t + delta
+	if enemy_count<=0:
+		for i in range(0, get_child_count()):
+			get_child(i).queue_free()
+		grid_size = Vector2(grid_size.x+1,grid_size.y+1)
+		init(1)
 	update()
 	pass
 

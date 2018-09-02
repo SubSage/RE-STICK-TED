@@ -15,7 +15,7 @@ func _process(delta):
 	
 
 func _draw():
-	draw_circle(Vector2(0,0), size, color)
+#	draw_circle(Vector2(0,0), size, color)
 	pass
 
 func _on_Area2D_area_entered(area):

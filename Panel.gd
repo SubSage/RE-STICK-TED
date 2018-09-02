@@ -33,6 +33,8 @@ func _draw():
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("player bullets"):
 #		print(area.name)
+		$"..".enemy_count-=1
+		print ($"..".enemy_count)
 		queue_free()
 		pass # replace with function body
 
@@ -40,7 +42,11 @@ func _on_Area2D_area_entered(area):
 func _on_Timer_timeout():
 	var b = Bullet.instance()
 	b.add_to_group("enemy_bullet")
+	
+	b.get_node("Area2D").add_to_group("enemy_bullet")
+	b.get_node("Sprite")
 	b.direction=direction
+	b.rotation=self.rotation
 	b.speed=128*1.5
 	b.size=128/2
 	b.get_node("Timer").wait_time=8

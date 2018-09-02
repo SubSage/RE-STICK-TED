@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/wallStraight.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/_REF_wallThin_Straight.png" type="Texture" id=2]
@@ -380,6 +380,11 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 extents = Vector2( 64, 64 )
 
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
 [node name="wallStraight" type="Node2D"]
 
 script = ExtResource( 1 )
@@ -532,5 +537,21 @@ collision/safe_margin = 0.08
 visible = false
 shape = SubResource( 5 )
 _sections_unfolded = [ "Visibility" ]
+
+[node name="Area2D" type="Area2D" parent="." index="5" groups=[
+"wall",
+]]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 6 )
 
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/bulletFat.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -31,6 +32,10 @@ process_mode = 1
 wait_time = 6.0
 one_shot = true
 autostart = true
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+
+texture = ExtResource( 2 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 

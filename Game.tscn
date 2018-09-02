@@ -31,7 +31,7 @@ bus = "Master"
 process_mode = 1
 wait_time = 0.5
 one_shot = false
-autostart = true
+autostart = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
