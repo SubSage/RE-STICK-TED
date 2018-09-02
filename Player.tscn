@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32.8432, 32.9879 )
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" index="0"]
 
 position = Vector2( 64, 64 )
 script = ExtResource( 1 )
@@ -23,7 +23,7 @@ texture = ExtResource( 2 )
 anchor_mode = 1
 rotating = false
 current = false
-zoom = Vector2( 1, 1 )
+zoom = Vector2( 1.5, 1.5 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000

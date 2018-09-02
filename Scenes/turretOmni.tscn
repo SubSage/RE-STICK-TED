@@ -6,7 +6,7 @@
 [ext_resource path="res://Sprites/turretOmni_Body.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/turretOmni_Shield.png" type="Texture" id=5]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 
 resource_name = "fire"
 length = 0.5
@@ -202,7 +202,7 @@ tracks/15/keys = {
 "times": PoolRealArray( 0, 0.1, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -70, 3.0598e-006 ), Vector2( -120, 5.24537e-006 ), Vector2( -70, 3.0598e-006 ) ]
+"values": [ Vector2( -70, 3.0598e-06 ), Vector2( -120, 5.24537e-06 ), Vector2( -70, 3.0598e-06 ) ]
 }
 tracks/16/type = "value"
 tracks/16/path = NodePath("obj/shield/right:position")
@@ -214,12 +214,11 @@ tracks/16/keys = {
 "times": PoolRealArray( 0, 0.1, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 70, 3.0598e-006 ), Vector2( 120, 5.24537e-006 ), Vector2( 70, 3.0598e-006 ) ]
+"values": [ Vector2( 70, 3.0598e-06 ), Vector2( 120, 5.24537e-06 ), Vector2( 70, 3.0598e-06 ) ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 
-resource_name = "idle"
 length = 3.0
 loop = true
 step = 0.05
@@ -413,7 +412,7 @@ tracks/15/keys = {
 "times": PoolRealArray( 0, 0.25, 1, 1.25, 2, 2.25, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -70, 3.0598e-006 ), Vector2( -80, 3.49691e-006 ), Vector2( -70, 3.0598e-006 ), Vector2( -80, 3.49691e-006 ), Vector2( -70, 3.0598e-006 ), Vector2( -80, 3.49691e-006 ), Vector2( -70, 3.0598e-006 ) ]
+"values": [ Vector2( -70, 3.0598e-06 ), Vector2( -80, 3.49691e-06 ), Vector2( -70, 3.0598e-06 ), Vector2( -80, 3.49691e-06 ), Vector2( -70, 3.0598e-06 ), Vector2( -80, 3.49691e-06 ), Vector2( -70, 3.0598e-06 ) ]
 }
 tracks/16/type = "value"
 tracks/16/path = NodePath("obj/shield/right:position")
@@ -425,10 +424,10 @@ tracks/16/keys = {
 "times": PoolRealArray( 0, 0.25, 1, 1.25, 2, 2.25, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 70, 3.0598e-006 ), Vector2( 80, 3.49691e-006 ), Vector2( 70, 3.0598e-006 ), Vector2( 80, 3.49691e-006 ), Vector2( 70, 3.0598e-006 ), Vector2( 80, 3.49691e-006 ), Vector2( 70, 3.0598e-006 ) ]
+"values": [ Vector2( 70, 3.0598e-06 ), Vector2( 80, 3.49691e-06 ), Vector2( 70, 3.0598e-06 ), Vector2( 80, 3.49691e-06 ), Vector2( 70, 3.0598e-06 ), Vector2( 80, 3.49691e-06 ), Vector2( 70, 3.0598e-06 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 resource_name = "spawn"
 length = 0.5
@@ -636,7 +635,7 @@ tracks/16/keys = {
 "times": PoolRealArray( 0.2, 0.35, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -40, 1.74846e-006 ), Vector2( -76, 3.32207e-006 ), Vector2( -70, 3.0598e-006 ) ]
+"values": [ Vector2( -40, 1.74846e-06 ), Vector2( -76, 3.32207e-06 ), Vector2( -70, 3.0598e-06 ) ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("obj/shield/right:position")
@@ -648,7 +647,7 @@ tracks/17/keys = {
 "times": PoolRealArray( 0.2, 0.35, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 40, 1.74846e-006 ), Vector2( 76, 3.32207e-006 ), Vector2( 70, 3.0598e-006 ) ]
+"values": [ Vector2( 40, 1.74846e-06 ), Vector2( 76, 3.32207e-06 ), Vector2( 70, 3.0598e-06 ) ]
 }
 tracks/18/type = "value"
 tracks/18/path = NodePath("obj/shadow:scale")
@@ -663,7 +662,7 @@ tracks/18/keys = {
 "values": [ Vector2( 0.2, 0.2 ), Vector2( 0.689394, 0.689394 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 64, 64 )
@@ -732,14 +731,14 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="left" type="Sprite" parent="obj/shield" index="0"]
 
-position = Vector2( -70, 3.0598e-006 )
+position = Vector2( -70, 3.0598e-06 )
 rotation = -1.5708
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="right" type="Sprite" parent="obj/shield" index="1"]
 
-position = Vector2( 70, 3.0598e-006 )
+position = Vector2( 70, 3.0598e-06 )
 rotation = 1.5708
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
@@ -751,9 +750,9 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/fire = SubResource( 3 )
-anims/idle = SubResource( 1 )
-anims/spawn = SubResource( 4 )
+anims/fire = SubResource( 1 )
+anims/idle = SubResource( 2 )
+anims/spawn = SubResource( 3 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
@@ -775,6 +774,6 @@ collision/safe_margin = 0.08
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" index="0"]
 
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 
