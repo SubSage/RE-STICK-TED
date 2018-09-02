@@ -110,7 +110,7 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "play"
+"method": "playActivate"
 } ]
 }
 
@@ -391,6 +391,7 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="jets" type="Node2D" parent="." index="1"]
 
+visible = false
 _sections_unfolded = [ "Visibility" ]
 
 [node name="jet1" parent="jets" index="0" instance=ExtResource( 2 )]
@@ -403,15 +404,15 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="shadow" type="Sprite" parent="obj" index="0"]
 
-position = Vector2( 0, 30 )
-scale = Vector2( 0.5, 0.25 )
+visible = false
+position = Vector2( 0, 40 )
+scale = Vector2( 0.5, 0.225 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="legs" type="Node2D" parent="obj" index="1"]
 
 editor/display_folded = true
-position = Vector2( 0, 20 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="left" type="Sprite" parent="obj/legs" index="0"]

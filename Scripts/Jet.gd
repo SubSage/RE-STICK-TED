@@ -9,8 +9,9 @@ func _ready():
 	# Initialization here
 	pass
 
-func playActive():
-    this.get_node("AnimationPlayer").play("activate")
+func playActivate():
+	var j = jet.instance()
+	j.get_node("AnimationPlayer").play("activate")
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
