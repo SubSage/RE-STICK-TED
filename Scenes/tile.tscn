@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Sprites/tileBase.png" type="Texture" id=1]
 
-[node name="tile" type="Node2D"]
+[node name="tile" type="Node2D" index="0"]
 
 [node name="obj" type="Node2D" parent="." index="0"]
 
