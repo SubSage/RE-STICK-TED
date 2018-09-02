@@ -19,9 +19,11 @@ func _draw():
 	pass
 
 func _on_Area2D_area_entered(area):
-	if (area.is_in_group("shootable")): 
+	if (self.is_in_group("enemy_bullet")):
 		pass
-#		queue_free()
+	elif (area.is_in_group("shootable")): 
+#		pass
+		queue_free()
 	pass # replace with function body
 
 
