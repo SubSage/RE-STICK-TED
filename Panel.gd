@@ -8,7 +8,7 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	var t = Turret.instance()
-	t.get_node("AnimationPlayer").play("spawned")
+	t.get_node("AnimationPlayer").play("spawn")
 	add_child(t)
 	pass
 
@@ -16,7 +16,6 @@ func _physics_process(delta):
 	get_node("RayCast2D").cast_to=direction*1000
 	if get_node("RayCast2D").is_colliding():
 		var collider = get_node("RayCast2D").get_collider()
-		print(collider.name)
 		update()
 
 
@@ -25,7 +24,6 @@ func _draw():
 		var collision_point = get_node("RayCast2D").get_collision_point()
 #		draw_line(Vector2(0,0),(collision_point-self.global_position), Color(1,.4,.23),16, true)
 		draw_line(Vector2(0,0),to_local(collision_point), Color(1,.4,.23),16, true)
-		print(collision_point-self.global_position)
 	pass
 	
 func _on_Area2D_area_entered(area):
