@@ -332,7 +332,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="rail" type="Sprite" parent="obj" index="4"]
 
 editor/display_folded = true
-position = Vector2( -5.10809, 0 )
+position = Vector2( -6, 0 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 

@@ -241,18 +241,22 @@ position = Vector2( 0, -39 )
 
 [node name="outer" type="Sprite" parent="obj/flame" index="0"]
 
+position = Vector2( 0, -10.354 )
+scale = Vector2( 1.16307, 1.24461 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="inner" type="Sprite" parent="obj/flame" index="1"]
 
-position = Vector2( 0, 12 )
+position = Vector2( 0, -11.1053 )
+scale = Vector2( 1.81536, 2.63072 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="dot" type="Sprite" parent="obj/flame" index="2"]
 
-position = Vector2( 0, 30 )
+position = Vector2( 0, 28.1516 )
+scale = Vector2( 0.38848, 1 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
