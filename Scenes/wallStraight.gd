@@ -1,10 +1,11 @@
 extends Node2D
 
+onready var player = $AnimationPlayer
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	$AnimationPlayer.play("spawn")
+	player.play("idle")
 	pass
 
 #func _process(delta):

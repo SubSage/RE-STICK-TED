@@ -140,10 +140,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ false, false ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("jets:visible")
@@ -398,6 +398,7 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="jets" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 visible = false
 _sections_unfolded = [ "Visibility" ]
 
@@ -412,14 +413,13 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="shadow" type="Sprite" parent="obj" index="0"]
 
 visible = false
-position = Vector2( 0, 10 )
-scale = Vector2( 0.5, 0.2 )
+position = Vector2( 0, 30 )
+scale = Vector2( 0.5, 0.25 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="legs" type="Node2D" parent="obj" index="1"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="left" type="Sprite" parent="obj/legs" index="0"]
@@ -427,7 +427,8 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( -38, -42 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
+flip_h = true
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="right" type="Sprite" parent="obj/legs" index="1"]
 
@@ -442,7 +443,6 @@ texture = ExtResource( 6 )
 
 [node name="directionIndicator" type="Node2D" parent="obj" index="3"]
 
-editor/display_folded = true
 position = Vector2( 0, 11 )
 _sections_unfolded = [ "Visibility" ]
 
@@ -460,12 +460,12 @@ _sections_unfolded = [ "Transform" ]
 [node name="left" type="Node2D" parent="obj/directionIndicator/lights" index="0"]
 
 position = Vector2( -51, 0 )
-rotation = 0.569977
+rotation = 1.06521
 _sections_unfolded = [ "Transform" ]
 
 [node name="rays" type="Node2D" parent="obj/directionIndicator/lights/left" index="0"]
 
-editor/display_folded = true
+visible = false
 _sections_unfolded = [ "Visibility" ]
 
 [node name="top" type="Sprite" parent="obj/directionIndicator/lights/left/rays" index="0"]
@@ -487,12 +487,12 @@ texture = ExtResource( 9 )
 [node name="right" type="Node2D" parent="obj/directionIndicator/lights" index="1"]
 
 position = Vector2( 51, 0 )
-rotation = 0.569977
+rotation = 1.06521
 _sections_unfolded = [ "Transform" ]
 
 [node name="rays" type="Node2D" parent="obj/directionIndicator/lights/right" index="0"]
 
-editor/display_folded = true
+visible = false
 _sections_unfolded = [ "Visibility" ]
 
 [node name="top" type="Sprite" parent="obj/directionIndicator/lights/right/rays" index="0"]
@@ -523,6 +523,7 @@ anims/idle = SubResource( 2 )
 anims/spawn = SubResource( 3 )
 anims/warning = SubResource( 4 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="4"]
 

@@ -72,7 +72,8 @@ func _process(delta):
 	if Input.is_action_pressed("ui_exit"):
 		get_tree().quit()
 	
-	if $Timer.time_left<=0.1 and (abs(motion.x)>0 or abs(motion.y)>0 ):
+#	if $Timer.time_left<=0.1 and
+	if (abs(motion.x)>0 or abs(motion.y)>0 ):
 		position += motion.normalized()*speed
 #		var b = Bullet.instance()
 ##		b.direction=motion.normalized()

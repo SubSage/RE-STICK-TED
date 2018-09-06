@@ -10,9 +10,14 @@ var enemy_count=0
 var stage=0
 
 func _ready():
+	
 	pass
 	
 func init(var level):
+	
+	var testwall = Wall.instance()
+	testwall.position=Vector2(-19,-42)
+	add_child(testwall)
 	
 	if level == 1:
 		for panels in range(0,grid_size.x):
@@ -29,6 +34,7 @@ func init(var level):
 						p.direction=Vector2(1,0)
 						if panels == grid_size.x-1:
 							add_child(p)
+							p.direction=Vector2(-1,0)
 							p.rotate(deg2rad(180))
 						else:
 							add_child(p)
@@ -48,7 +54,7 @@ func init(var level):
 				if randf()<.3:
 					enemy_count += 1
 					var p = Panels.instance()
-					p.delay(min(1.4,panels/10.0))
+					p.delay(.001)
 					p.position.x=panels * cell_size
 					p.direction=Vector2(0,1)
 					add_child(p)
@@ -58,7 +64,7 @@ func init(var level):
 					enemy_count += 1
 					p2.position.x=panels * cell_size
 					p2.position.y=(grid_size.y - 1) * cell_size
-					p2.delay(min(1.4,panels/10.0 + ((grid_size.y - 1))/30.0))
+					p2.delay(.001)
 					p2.direction=Vector2(0,-1)
 					add_child(p2)
 					p2.get_node("turretStandard").rotate(deg2rad(270))
