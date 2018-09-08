@@ -412,7 +412,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="shadow" type="Sprite" parent="obj" index="0"]
 
-visible = false
 position = Vector2( 0, 30 )
 scale = Vector2( 0.5, 0.25 )
 texture = ExtResource( 4 )
@@ -420,6 +419,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="legs" type="Node2D" parent="obj" index="1"]
 
+position = Vector2( 0, 25 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="left" type="Sprite" parent="obj/legs" index="0"]
@@ -460,12 +460,11 @@ _sections_unfolded = [ "Transform" ]
 [node name="left" type="Node2D" parent="obj/directionIndicator/lights" index="0"]
 
 position = Vector2( -51, 0 )
-rotation = 1.06521
+rotation = 1.20474
 _sections_unfolded = [ "Transform" ]
 
 [node name="rays" type="Node2D" parent="obj/directionIndicator/lights/left" index="0"]
 
-visible = false
 _sections_unfolded = [ "Visibility" ]
 
 [node name="top" type="Sprite" parent="obj/directionIndicator/lights/left/rays" index="0"]
@@ -487,12 +486,11 @@ texture = ExtResource( 9 )
 [node name="right" type="Node2D" parent="obj/directionIndicator/lights" index="1"]
 
 position = Vector2( 51, 0 )
-rotation = 1.06521
+rotation = 1.20474
 _sections_unfolded = [ "Transform" ]
 
 [node name="rays" type="Node2D" parent="obj/directionIndicator/lights/right" index="0"]
 
-visible = false
 _sections_unfolded = [ "Visibility" ]
 
 [node name="top" type="Sprite" parent="obj/directionIndicator/lights/right/rays" index="0"]

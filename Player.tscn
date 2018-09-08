@@ -13,6 +13,9 @@ extents = Vector2( 32.8432, 32.9879 )
 position = Vector2( 64, 64 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -23,7 +26,7 @@ texture = ExtResource( 2 )
 anchor_mode = 1
 rotating = false
 current = false
-zoom = Vector2( 1.5, 1.5 )
+zoom = Vector2( 1, 1 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000

@@ -3,12 +3,12 @@ var Bullet = preload("res://Bullet.tscn")
 var motion = Vector2()
 var direction = Vector2()
 var speed = 128
-
-
+onready var player = $AnimationPlayer
+onready var tween = $Tween
+onready var raycast = $RayCast2D
 func _ready():
 	$Camera2D.make_current()
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	player.play("idle")
 	pass
 
 func _process(delta):
@@ -18,22 +18,54 @@ func _process(delta):
 			motion.x=0
 		if abs(motion.y)<.2:
 			motion.y=0
-		if abs(Input.get_joy_axis(0,JOY_AXIS_3))>.05:
-			direction.x=Input.get_joy_axis(0,JOY_AXIS_3)
+		if abs(Input.get_joy_axis(0,JOY_AXIS_3))>.2:
+#			direction.x=Input.get_joy_axis(0,JOY_AXIS_3)
+			if $Timer.time_left <= 0:
+				tween.interpolate_property(self, "position",
+				position, position + Vector2(speed,0), 0.2,
+				Tween.TRANS_BACK,Tween.EASE_OUT)
+				tween.start()
+				$Timer.start()
 		if abs(Input.get_joy_axis(0,JOY_AXIS_4))>.05:
 			direction.y=Input.get_joy_axis(0,JOY_AXIS_4)
 		direction=direction.normalized()
 	else:
-		if Input.is_action_just_pressed("ui_right"):
-			motion.x = speed*delta
-		elif Input.is_action_just_pressed("ui_left"):
-			motion.x = -speed*delta
-		else:
-			motion.x = 0
-		if Input.is_action_just_pressed("ui_up"):
-			motion.y = -speed*delta
-		elif Input.is_action_just_pressed("ui_down"):
-			motion.y = speed*delta
+		if Input.is_action_pressed("ui_right"):
+			raycast.cast_to = Vector2(Vector2(speed,0))
+			raycast.force_raycast_update()
+			if $Timer.time_left <= 0 and not raycast.is_colliding():
+				tween.interpolate_property(self, "position",
+				position, position + Vector2(speed,0), 0.2,
+				Tween.TRANS_BACK,Tween.EASE_OUT)
+				tween.start()
+				$Timer.start()
+		elif Input.is_action_pressed("ui_left"):
+			raycast.cast_to = Vector2(Vector2(-speed,0))
+			raycast.force_raycast_update()
+			if $Timer.time_left <= 0 and not raycast.is_colliding():
+				tween.interpolate_property(self, "position",
+				position, position + Vector2(-speed,0), 0.2,
+				Tween.TRANS_BACK,Tween.EASE_OUT)
+				tween.start()
+				$Timer.start()
+		if Input.is_action_pressed("ui_up"):
+			raycast.cast_to = Vector2(Vector2(0,-speed))
+			raycast.force_raycast_update()
+			if $Timer.time_left <= 0 and not raycast.is_colliding():
+				tween.interpolate_property(self, "position",
+				position, position + Vector2(0,-speed), 0.2,
+				Tween.TRANS_BACK,Tween.EASE_OUT)
+				tween.start()
+				$Timer.start()
+		elif Input.is_action_pressed("ui_down"):
+			raycast.cast_to = Vector2(Vector2(0,speed))
+			raycast.force_raycast_update()
+			if $Timer.time_left <= 0 and not raycast.is_colliding():
+				tween.interpolate_property(self, "position",
+				position, position + Vector2(0,speed), 0.2,
+				Tween.TRANS_BACK,Tween.EASE_OUT)
+				tween.start()
+				$Timer.start()
 		else:
 			motion.y = 0
 		
@@ -88,9 +120,6 @@ func _process(delta):
 
 
 func _on_hitbox_area_entered(area):
-#	print(area.name)
-	if(area.is_in_group("enemy_bullet")or area.is_in_group("wall")):
-		get_tree().quit()
-#	print(area.name)
-#	print("Player has touched : " +str(area.name))
+#	if(area.is_in_group("enemy_bullet")or area.is_in_group("wall")):
+#		get_tree().quit()
 	pass # replace with function body

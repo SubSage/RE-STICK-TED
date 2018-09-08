@@ -2,31 +2,19 @@ extends Node2D
 
 var grid_size = Vector2(12,12)
 var cell_size = 128
-export var t=0
 var Panels = preload("res://Panel.tscn")
 var Wall = preload("res://Scenes/wallStraight.tscn")
 var Omni = preload("res://Scenes/turretOmni.tscn")
 var enemy_count=0
 var stage=0
 
-func _ready():
-	
-	pass
-	
 func init(var level):
-	
-	var testwall = Wall.instance()
-	testwall.position=Vector2(-19,-42)
-	add_child(testwall)
-	
 	if level == 1:
 		for panels in range(0,grid_size.x):
 			if panels == 0 or panels==grid_size.x-1:
 				for panels2 in range(1,grid_size.y-1):
-					if randf()<.32:
+					if randf()<.62:
 						enemy_count += 1
-						
-#						print("enenmys: " + str(enemy_count))
 						var p = Panels.instance()
 						p.delay(min(panels/30.0 + ((grid_size.y - 1))/60.0,1.4))
 						p.position.x=panels * cell_size
@@ -39,7 +27,8 @@ func init(var level):
 						else:
 							add_child(p)
 					else:
-						var w = Wall.instance()
+						enemy_count += 1
+						var w = Omni.instance()
 						w.position.x=panels * cell_size
 						w.position.y=panels2 * cell_size
 						if panels == grid_size.x-1:
@@ -60,7 +49,6 @@ func init(var level):
 					add_child(p)
 					p.get_node("turretStandard").rotate(deg2rad(90))
 					var p2 = Panels.instance()
-#					print("enenmys: " + str(enemy_count))
 					enemy_count += 1
 					p2.position.x=panels * cell_size
 					p2.position.y=(grid_size.y - 1) * cell_size
