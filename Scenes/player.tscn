@@ -225,8 +225,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="obj" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="legs" type="Node2D" parent="obj" index="0"]
 
 [node name="top" type="Node2D" parent="obj/legs" index="0"]
@@ -297,27 +295,27 @@ editor/display_folded = true
 
 [node name="topRight" type="Sprite" parent="obj/panels" index="0"]
 
-position = Vector2( 37.5174, -37.5174 )
+position = Vector2( 37.6637, -37.6637 )
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="bottomRight" type="Sprite" parent="obj/panels" index="1"]
 
-position = Vector2( 37.5174, 37.5174 )
+position = Vector2( 37.6637, 37.6637 )
 rotation = 1.5708
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="left" type="Sprite" parent="obj/panels" index="2"]
 
-position = Vector2( -37.5174, 37.5174 )
+position = Vector2( -37.6637, 37.6637 )
 rotation = 3.14159
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="bottom" type="Sprite" parent="obj/panels" index="3"]
 
-position = Vector2( -37.5174, -37.5174 )
+position = Vector2( -37.6637, -37.6637 )
 rotation = -1.5708
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
@@ -328,6 +326,7 @@ texture = ExtResource( 8 )
 
 [node name="eye" type="Sprite" parent="obj" index="3"]
 
+rotation = 0.349066
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 

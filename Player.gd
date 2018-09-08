@@ -12,6 +12,9 @@ func _ready():
 	pass
 
 func _process(delta):
+	if not player.is_playing():
+		player.play("idle")
+		
 	if Input.get_connected_joypads().size() > 0:
 		motion=(Vector2(Input.get_joy_axis(0,JOY_AXIS_0),Input.get_joy_axis(0,JOY_AXIS_1)))
 		if abs(motion.x)<.2:
@@ -48,7 +51,7 @@ func _process(delta):
 				Tween.TRANS_BACK,Tween.EASE_OUT)
 				tween.start()
 				$Timer.start()
-		if Input.is_action_pressed("ui_up"):
+		elif Input.is_action_pressed("ui_up"):
 			raycast.cast_to = Vector2(Vector2(0,-speed))
 			raycast.force_raycast_update()
 			if $Timer.time_left <= 0 and not raycast.is_colliding():
@@ -82,6 +85,7 @@ func _process(delta):
 			direction.y = speed*delta
 		
 		if abs(direction.x)>0 or abs(direction.y)>0:
+			player.play("fire")
 			var b = Bullet.instance()
 			b.direction=direction.normalized()
 			b.position=self.position
@@ -103,18 +107,6 @@ func _process(delta):
 		
 	if Input.is_action_pressed("ui_exit"):
 		get_tree().quit()
-	
-#	if $Timer.time_left<=0.1 and
-	if (abs(motion.x)>0 or abs(motion.y)>0 ):
-		position += motion.normalized()*speed
-#		var b = Bullet.instance()
-##		b.direction=motion.normalized()
-#		b.position=self.position
-#		b.speed=300
-#		b.size=4
-#		b.get_node("Area2D").add_to_group("player bullets")
-#		$"..".add_child(b)
-		$Timer.start()
 	update()
 	pass
 

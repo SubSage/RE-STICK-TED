@@ -6,7 +6,7 @@ var Panels = preload("res://Panel.tscn")
 var Wall = preload("res://Scenes/wallStraight.tscn")
 var Omni = preload("res://Scenes/turretOmni.tscn")
 var enemy_count=0
-var stage=0
+
 
 func init(var level):
 	if level == 1:
@@ -23,7 +23,7 @@ func init(var level):
 						if panels == grid_size.x-1:
 							add_child(p)
 							p.direction=Vector2(-1,0)
-							p.rotate(deg2rad(180))
+							p.get_node("turretStandard").rotate(deg2rad(180))
 						else:
 							add_child(p)
 					else:
