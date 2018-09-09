@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="GMTK 2018"
+config/name="RESTICKTED"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
@@ -35,8 +35,10 @@ ui_w=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","
 ui_a=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
  ]
 ui_s=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":5,"axis_value":-1.0,"script":null)
  ]
 ui_d=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":5,"axis_value":1.0,"script":null)
  ]
 
 [rendering]

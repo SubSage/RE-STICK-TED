@@ -1,6 +1,9 @@
 extends Node2D
 var Bullet = preload("res://Bullet.tscn")
-var motion = Vector2()
+var controllerLeftStick = Vector2()
+var controllerLeftStickDeadzone = .2
+var controllerRightStick = Vector2()
+var controllerRightStickDeadzone = .2
 var direction = Vector2()
 var speed = 128
 onready var player = $AnimationPlayer
@@ -16,22 +19,108 @@ func _process(delta):
 		player.play("idle")
 		
 	if Input.get_connected_joypads().size() > 0:
-		motion=(Vector2(Input.get_joy_axis(0,JOY_AXIS_0),Input.get_joy_axis(0,JOY_AXIS_1)))
-		if abs(motion.x)<.2:
-			motion.x=0
-		if abs(motion.y)<.2:
-			motion.y=0
-		if abs(Input.get_joy_axis(0,JOY_AXIS_3))>.2:
-#			direction.x=Input.get_joy_axis(0,JOY_AXIS_3)
-			if $Timer.time_left <= 0:
+		controllerLeftStick=(Vector2(Input.get_joy_axis(0,JOY_AXIS_0),Input.get_joy_axis(0,JOY_AXIS_1)))
+		controllerRightStick=(Vector2(Input.get_joy_axis(0,JOY_AXIS_3),Input.get_joy_axis(0,JOY_AXIS_4))) # this works for FUS1ON Tournament Controller
+		if abs(controllerLeftStick.x)<controllerLeftStickDeadzone:
+			controllerLeftStick.x=0
+		if abs(controllerLeftStick.y)<controllerLeftStickDeadzone:
+			controllerLeftStick.y=0
+		if abs(controllerRightStick.x)<controllerRightStickDeadzone:
+			controllerRightStick.x=0
+		if abs(controllerRightStick.y)<controllerRightStickDeadzone:
+			controllerRightStick.y=0
+			
+		if controllerLeftStick.x > .5:
+			raycast.cast_to = Vector2(Vector2(speed,0))
+			raycast.force_raycast_update()
+			if $Timer.time_left <= 0 and not raycast.is_colliding():
 				tween.interpolate_property(self, "position",
 				position, position + Vector2(speed,0), 0.2,
 				Tween.TRANS_BACK,Tween.EASE_OUT)
 				tween.start()
 				$Timer.start()
-		if abs(Input.get_joy_axis(0,JOY_AXIS_4))>.05:
-			direction.y=Input.get_joy_axis(0,JOY_AXIS_4)
-		direction=direction.normalized()
+		elif controllerLeftStick.x < -.5:
+			raycast.cast_to = Vector2(Vector2(-speed,0))
+			raycast.force_raycast_update()
+			if $Timer.time_left <= 0 and not raycast.is_colliding():
+				tween.interpolate_property(self, "position",
+				position, position + Vector2(-speed,0), 0.2,
+				Tween.TRANS_BACK,Tween.EASE_OUT)
+				tween.start()
+				$Timer.start()
+		elif controllerLeftStick.y < -.5:
+			raycast.cast_to = Vector2(Vector2(0,-speed))
+			raycast.force_raycast_update()
+			if $Timer.time_left <= 0 and not raycast.is_colliding():
+				tween.interpolate_property(self, "position",
+				position, position + Vector2(0,-speed), 0.2,
+				Tween.TRANS_BACK,Tween.EASE_OUT)
+				tween.start()
+				$Timer.start()
+		elif controllerLeftStick.y > .5:
+			raycast.cast_to = Vector2(Vector2(0,speed))
+			raycast.force_raycast_update()
+			if $Timer.time_left <= 0 and not raycast.is_colliding():
+				tween.interpolate_property(self, "position",
+				position, position + Vector2(0,speed), 0.2,
+				Tween.TRANS_BACK,Tween.EASE_OUT)
+				tween.start()
+				$Timer.start()
+		if controllerRightStick.x > .5:
+			player.play("fire")
+			var b = Bullet.instance()
+			b.direction=Vector2(1,0)
+			b.position=self.position
+			b.speed=128*3
+			b.size=4
+			b.get_node("Sprite").texture=load("res://Sprites/bulletSpark.png")
+			b.rotate(deg2rad(180))
+			b.get_node("Area2D").add_to_group("player bullets")
+			$"..".add_child(b)
+		if controllerRightStick.x < -.5:
+			player.play("fire")
+			var b = Bullet.instance()
+			b.direction=Vector2(-1,0)
+			b.position=self.position
+			b.speed=128*3
+			b.size=4
+			b.get_node("Sprite").texture=load("res://Sprites/bulletSpark.png")
+			b.rotate(deg2rad(180))
+			b.get_node("Area2D").add_to_group("player bullets")
+			$"..".add_child(b)
+		if controllerRightStick.y > .5:
+			player.play("fire")
+			var b = Bullet.instance()
+			b.direction=Vector2(0,1)
+			b.position=self.position
+			b.speed=128*3
+			b.size=4
+			b.get_node("Sprite").texture=load("res://Sprites/bulletSpark.png")
+			b.rotate(deg2rad(180))
+			b.get_node("Area2D").add_to_group("player bullets")
+			$"..".add_child(b)
+		if controllerRightStick.y < -.5:
+			player.play("fire")
+			var b = Bullet.instance()
+			b.direction=Vector2(0,-1)
+			b.position=self.position
+			b.speed=128*3
+			b.size=4
+			b.get_node("Sprite").texture=load("res://Sprites/bulletSpark.png")
+			b.rotate(deg2rad(180))
+			b.get_node("Area2D").add_to_group("player bullets")
+			$"..".add_child(b)
+#		if abs(Input.get_joy_axis(0,JOY_AXIS_3))>.2:
+##			direction.x=Input.get_joy_axis(0,JOY_AXIS_3)
+#			if $Timer.time_left <= 0:
+#				tween.interpolate_property(self, "position",
+#				position, position + Vector2(speed,0), 0.2,
+#				Tween.TRANS_BACK,Tween.EASE_OUT)
+#				tween.start()
+#				$Timer.start()
+#		if abs(Input.get_joy_axis(0,JOY_AXIS_4))>.05:
+#			direction.y=Input.get_joy_axis(0,JOY_AXIS_4)
+#		direction=direction.normalized()
 	else:
 		if Input.is_action_pressed("ui_right"):
 			raycast.cast_to = Vector2(Vector2(speed,0))
@@ -70,7 +159,7 @@ func _process(delta):
 				tween.start()
 				$Timer.start()
 		else:
-			motion.y = 0
+			controllerLeftStick.y = 0
 		
 		direction.x = 0
 		direction.y = 0

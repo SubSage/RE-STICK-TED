@@ -2,12 +2,7 @@ extends "res://Scenes/turretStandard.gd"
 var Bullet = preload("res://Bullet.tscn")
 
 var texture = load("res://Sprites/bulletOval.png")
-# var b = "textvar"
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
 
 
 func _on_Timer_timeout():
